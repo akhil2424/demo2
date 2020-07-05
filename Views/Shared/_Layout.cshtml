@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="navbar navbar-dark bg-primary navbar-fixed-top">
+
+        <a class="navbar-brand" style="color:white;">Sample App</a>
+        <a class="navbar-brand btn btn-default btn-lg" style="color:black;" data-toggle="modal" data-target="#help" title="Click For Help">
+            Help
+        </a>
+
+        @*<a class="navbar-brand" style="color:white;"><span class="glyphicon glyphicon-question-sign" data-toggle="modal" data-target="#help" title="Click For Help"></span> Help</a>*@
+        <a class="navbar-brand pull-right" href='@Url.Action("Index","Home")' style="color:white;"><span class="glyphicon glyphicon-user"></span> Logout</a>
+
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <input type="hidden" id="_root" value="@Url.Content("~/")" />
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Devepoled by Akhil Baby</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

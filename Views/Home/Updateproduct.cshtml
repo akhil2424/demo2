@@ -1,0 +1,45 @@
+﻿@model demo2.Models.Product
+@{
+    ViewBag.Title = "Updateproduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddProduct</h2>
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-8">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <form class="form-horizontal panel-body">
+                        <div class="form-group">
+                            @Html.HiddenFor(x => x.Productid)
+                            @Html.LabelFor(x => x.Productname, "Product Name")
+                            @Html.TextBoxFor(x => x.Productname, new { @class = "form-control", placeholder = "Enter Product Name" })
+                            @Html.ValidationMessageFor(x => x.Productname)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Description, "Description")
+                            @Html.TextBoxFor(x => x.Description, new { @class = "form-control", placeholder = "Enter Description" })
+                            @Html.ValidationMessageFor(x => x.Description)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Price, "Price")
+                            @Html.TextBoxFor(x => x.Price, new { @class = "form-control", placeholder = "Enter Price" })
+                            @Html.ValidationMessageFor(x => x.Price)
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" id="Updateproduct">Update product</button>
+                            <input type="button" value="Cancel" class="btn btn-secondary" id="cancelButton" align=center />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+   {
+    <script src="~/Scripts/Updateproduct.js"></script>
+}
+

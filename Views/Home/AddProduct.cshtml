@@ -1,0 +1,45 @@
+﻿
+    @model demo2.Models.Productindex
+
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddProduct</h2>
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-8">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <form class="form-horizontal panel-body">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Product.Productname, "Product Name")
+                            @Html.TextBoxFor(x => x.Product.Productname, new { @class = "form-control", placeholder = "Enter Product Name",id= "Productname"})
+                            @Html.ValidationMessageFor(x => x.Product.Productname, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Product.Description, "Description")
+                            @Html.TextBoxFor(x => x.Product.Description, new { @class = "form-control", placeholder = "Enter Description", id = "Description" })
+                            @Html.ValidationMessageFor(x => x.Product.Description, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Product.Price, "Price")
+                            @Html.TextBoxFor(x => x.Product.Price, new { @class = "form-control", placeholder = "Enter Price", id = "Price" })
+                            @Html.ValidationMessageFor(x => x.Product.Price, "", new { @class = "text-danger" })
+                        </div> 
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" id="Addnewproduct">Add New product</button>
+                            <input type="button" value="Cancel" class="btn btn-secondary" id="cancelButton" align=center />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+   {
+    <script src="~/Scripts/AddProduct.js"></script>
+}
+

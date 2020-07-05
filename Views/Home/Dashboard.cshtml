@@ -1,0 +1,136 @@
+﻿
+@model demo2.Models.Productindex
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<h2>Welcome @Model.User.Username</h2>
+    <input type="hidden" value="@Model.User.Userid" id="UserId" />*@
+    <H1>Welcome @ViewBag.Message</H1>
+@*<h2>Dashboard</h2>*@
+<div class="container">
+    <div class="row" id="psearch">
+        <div class="col col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title pull-left">Product List</h3>
+                    <div class="input-group">
+                        @*<span class="input-group-addon">
+                                <i class="glyphicon glyphicon-home panel-default pull-right" id="main" data-toggle="tooltip" title="Click for full list"></i>
+                            </span>*@
+                        <input style="width:300px;" type="text" class="form-control pull-right search-box" placeholder="Search by product name" id="search-box">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-search panel-default" id="search"></i>
+                        </span>
+                        <span class="input-group-addon btn btn-sm" style="color:black;" id="plus" data-toggle="tooltip" title="Click To Add New Product">
+
+                            @*<a class="glyphicon glyphicon-plus-sign pull-right panel-default" id="plus" data-toggle="tooltip" title="Click To Add New Product"></a>*@
+                            Add New
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-responsive table-striped">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <b>Name</b>
+                                </td>
+                                <td>
+                                    <b>Description</b>
+                                </td>
+                                <td>
+                                    <b>Price</b>
+                                </td>
+
+                                <td align="justify" colspan="8" style="padding-left:32px;">
+                                    <b>Edit / Delete</b>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Products.Count() != 0)
+                            {
+                                foreach (var item in Model.Products)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.Productname
+                                        </td>
+                                        <td>
+                                            @item.Description
+                                        </td>
+                                        <td>
+                                            @item.Price
+                                        </td>
+
+                                        <td style="padding-left:32px;">
+                                            <i data-toggle="tooltip" title="Click To Update Product">
+                                                @Html.ActionLink(" ", "UpdateProduct", "Home", new { Id = item.Productid }, new { @class = "glyphicon glyphicon-pencil" })
+                                            </i>
+                                            @*<i class="glyphicon glyphicon-trash delete" data-toggle="modal" data-target="#myModal" title="Click To delete product">
+                                                    <input type="hidden" value=@item.Productid class="ProductId" />
+                                                </i>*@
+                                            <i class="glyphicon glyphicon-trash delete" data-toggle="modal" data-target="#myModal" title="Click To delete product">
+                                                <input type="hidden" value=@item.Productid class="Productid" />
+                                            </i>
+
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <h2>Nothing to Show</h2>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        @*For Delete*@
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Do you want to Delete???</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" id="deleteButton" style="float:left;">Delete</button>
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*// For Help*@
+        <div class="modal fade" id="help" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h3>List of functions</h3>
+                        <p>1. Click Add New button for adding new Product </p>
+                        <p>2. Click Delete icon for deleting product</p>
+                        <p>3. Click Update icon for Updating product</p>
+                        <p>4. Click Search icon for Searching product</p>
+                        <p>5. Click Logout for logout</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+   {
+    <script src="~/Scripts/Search.js"></script>
+}
