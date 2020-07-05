@@ -10,7 +10,7 @@ using System.Web.ModelBinding;
 
 namespace demo2.Repository
 {
-    //*******Both Linque and sql querry approach is written************ 
+    //*******Both Linque and sql querry approach is written****************
    //********First part Linque query method
     public class UserRepository
     {
