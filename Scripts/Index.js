@@ -2,16 +2,16 @@
     $("#LoginButton").click(function () {
         if ($(this).closest('form').valid()) {
             var data = {
-                Email: $("#Email").val(),
-                Password: $("#Password").val()
+                Email: $("signInForm #Email").val(),
+                Password: $("signInForm #Password").val()
             }
             $.post($("#_root").val() + "Home/Login", data, function (r) { 
                 if (r.success) {  
                     window.location = ($("#_root").val() + "Home/dashboard");
                 }
                 else alert("Invalid Email or Password");
-                Email: $("#Email").val('');
-                Password: $("#Password").val('');
+                Email: $("#signInForm #Email").val('');
+                Password: $("#signInForm #Password").val('');
             });
         }
     });
