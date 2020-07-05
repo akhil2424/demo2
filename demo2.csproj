@@ -128,10 +128,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DBConnect\DatabaseContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Productindex.cs" />
     <Compile Include="Models\User.cs" />
