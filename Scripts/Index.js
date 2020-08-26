@@ -2,8 +2,8 @@
     $("#LoginButton").click(function () {
         if ($(this).closest('form').valid()) {
             var data = {
-                Email: $("signInForm #Email").val(),
-                Password: $("signInForm #Password").val()
+                Email: $("#signInForm #Email").val(),
+                Password: $("#signInForm #Password").val()
             }
             $.post($("#_root").val() + "Home/Login", data, function (r) { 
                 if (r.success) {  
